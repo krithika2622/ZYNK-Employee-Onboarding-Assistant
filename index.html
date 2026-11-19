@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Employee onboarding assistant demo">
+  <title>Zynq | Employee Onboarding Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Zynq home">
+      <span class="brand-mark">Z</span>
+      <span>Zy<span class="brand-light">nq</span></span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#checklist">Onboarding</a>
+      <a href="#assistant">HR Assistant</a>
+    </nav>
+    <div class="profile" id="userProfile" style="cursor: pointer;" title="View Profile">
+      <span class="avatar">K</span>
+      <span class="profile-name">Krithika</span>
+    </div>
+  </header>
+
+  <main class="page-shell" id="overview">
+    <section class="welcome-row">
+      <div>
+        <p class="eyebrow">EMPLOYEE EXPERIENCE PORTAL</p>
+        <h1>Welcome, Krithika <span aria-hidden="true"></span></h1>
+        <p class="welcome-copy">Your new journey starts here. Let’s make your first days simple and smooth.</p>
+      </div>
+      <div class="date-card">
+        <span class="date-label">YOUR ONBOARDING</span>
+        <strong>Getting started</strong>
+        <span class="date-sub">Your personal HR workspace</span>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Onboarding summary">
+      <article class="stat-card">
+        <span class="stat-icon purple">✓</span>
+        <div><p>Tasks completed</p><strong id="completedCount">2 of 5</strong></div>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon blue">▣</span>
+        <div><p>Documents to prepare</p><strong>3 items</strong></div>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon green">✦</span>
+        <div><p>HR support</p><strong>Available</strong></div>
+      </article>
+    </section>
+
+    <div class="content-grid">
+      <!-- Left Panel: Checklist -->
+      <section class="panel checklist-panel" id="checklist">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR FIRST STEPS</p>
+            <h2>Onboarding checklist</h2>
+          </div>
+          <span class="progress-label" id="progressLabel">40% complete</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="task-list" id="taskList">
+          <label class="task-item completed">
+            <input type="checkbox" checked>
+            <span class="custom-check"></span>
+            <span class="task-text"><strong>Welcome to the company</strong><small>Review your welcome message</small></span>
+            <span class="task-status">Done</span>
+          </label>
+          <label class="task-item completed">
+            <input type="checkbox" checked>
+            <span class="custom-check"></span>
+            <span class="task-text"><strong>Review company overview</strong><small>Learn about our team and values</small></span>
+            <span class="task-status">Done</span>
+          </label>
+          
+          <label class="task-item">
+  <input type="checkbox">
+  <span class="custom-check"></span>
+  <span class="task-text">
+    <strong>Submit joining documents</strong>
+    <small>Prepare the documents requested by HR</small>
+  </span>
+  <button type="button" class="form-open-btn" data-form-title="Zynq Employee Onboarding Form">Open Form</button>
+  <span class="task-status">Pending</span>
+</label>
+          <label class="task-item">
+            <input type="checkbox">
+            <span class="custom-check"></span>
+            <span class="task-text"><strong>Complete your profile</strong><small>Fill in your personal and professional details</small></span>
+            <span class="task-status">Pending</span>
+          </label>
+          <label class="task-item">
+            <input type="checkbox">
+            <span class="custom-check"></span>
+            <span class="task-text"><strong>Schedule onboarding session</strong><small>Book a time with your HR buddy</small></span>
+            <span class="task-status">Pending</span>
+          </label>
+        </div>
+
+        <!-- Gamification Badges Shelf -->
+        <div class="badge-shelf" id="badgeShelf">
+          <span class="badge-title">🏆 Your Badges:</span>
+          <div class="badges-container" id="badgesContainer">
+            <span class="badge unlocked" data-step="1">👋 Warm Welcome</span>
+            <span class="badge unlocked" data-step="2">🧭 Culture Explorer</span>
+            <span class="badge locked" data-step="3">📄 Paperwork Pro</span>
+            <span class="badge locked" data-step="4">🆔 Profile Ready</span>
+            <span class="badge locked" data-step="5">🎓 Onboarding Star</span>
+          </div>
+        </div>
+
+        <p class="helper-note">Demo checklist: your selections stay on this page only and are not sent to an HR system.</p>
+      </section>
+
+      <!-- Right Panel: HR Assistant (Restored Inside content-grid) -->
+      <section class="panel assistant-panel" id="assistant">
+        <div class="assistant-header">
+          <div class="assistant-avatar">✦</div>
+          <div><h2>HR Assistant</h2><p><span class="online-dot"></span> Ready to help</p></div>
+          <span class="ai-tag">AI GUIDE DEMO</span>
+        </div>
+        <div class="chat-area" id="chatArea" aria-live="polite">
+          <div class="message bot-message">
+            <span class="message-avatar">✦</span>
+            <div class="bubble">
+              <p>Hi Krithika! I’m your onboarding assistant. Ask me about joining documents, working hours, leave policy or HR support.</p>
+              <span class="message-time">HR Assistant</span>
+            </div>
+          </div>
+        </div>
+        <div class="suggestions">
+          <button class="suggestion" data-question="Which documents should I prepare?">📄 Joining documents</button>
+          <button class="suggestion" data-question="What are the working hours?">⏰ Working hours</button>
+          <button class="suggestion" data-question="How do I apply for leave?">🏖️ Leave policy</button>
+          <button class="suggestion" data-question="What is the office Wi-Fi password?">📶 Office Wi-Fi</button>
+          <button class="suggestion" data-question="Who is my onboarding buddy?">🤝 Meet my buddy</button>
+          <button class="suggestion" data-question="Tell me an office joke!">😄 Fun break</button>
+        </div>
+        <form class="chat-form" id="chatForm">
+          <label class="sr-only" for="chatInput">Type your HR question</label>
+          <input id="chatInput" type="text" placeholder="Ask your HR assistant..." autocomplete="off" required>
+          <button type="submit" aria-label="Send message">➤</button>
+        </form>
+        <p class="chat-disclaimer">This is a sample FAQ chatbot, not a live AI or official HR system.</p>
+      </section>
+    </div>
+
+    <section class="quick-links">
+      <div><p class="eyebrow">NEED A HAND?</p><h2>Helpful information</h2></div>
+      <article class="quick-card"><span class="quick-icon">📋</span><div><strong>Joining documents</strong><p>Check the usual documents to discuss with HR.</p></div></article>
+      <article class="quick-card"><span class="quick-icon">⏰</span><div><strong>Working hours</strong><p>Confirm your schedule with your HR contact.</p></div></article>
+      <article class="quick-card"><span class="quick-icon">💬</span><div><strong>HR support</strong><p>Contact your company’s HR team for official help.</p></div></article>
+    </section>
+    <footer>Zynq · Employee Onboarding Assistant Demo <span>Built for learning and demonstration</span></footer>
+  </main>
+
+  <!-- Popup Modal Structure -->
+  <div id="hrModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3 id="modalTitle">HR Notice</h3>
+      <p id="modalText">Here are the details.</p>
+      <button id="modalCloseBtn">Got it</button>
+    </div>
+  </div>
+
+  <!-- Confetti Celebration Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
